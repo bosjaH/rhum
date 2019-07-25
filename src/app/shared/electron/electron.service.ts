@@ -27,8 +27,11 @@ export class ElectronService {
     }
   }
 
-  isElectron = () => {
+  isElectron(): boolean {
     return window && window.process && window.process.type;
   }
 
+  isRendererProcess(): boolean {
+    return process && process.type === 'renderer';
+  }
 }
