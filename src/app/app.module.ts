@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { MainComponent, SideNavComponent } from './components';
+import { MainComponent, SideNavComponent, PlayerComponent } from './components';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -22,6 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     MainComponent,
     SideNavComponent,
+    PlayerComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -2,8 +2,8 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { MatSidenavModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import * as mat from '@angular/material';
 
 import { ElectronService } from './electron/electron.service';
 import { WebviewDirective } from './electron/webview.directive';
@@ -16,16 +16,22 @@ import { WebviewDirective } from './electron/webview.directive';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    WebviewDirective,
     BrowserAnimationsModule,
-    MatSidenavModule,
-    WebviewDirective
+    mat.MatIconModule,
+    mat.MatButtonModule,
+    mat.MatProgressBarModule,
+    mat.MatInputModule,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
+    mat.MatIconModule,
+    mat.MatButtonModule,
+    mat.MatProgressBarModule,
+    mat.MatInputModule,
   ]
 })
 export class SharedModule {
