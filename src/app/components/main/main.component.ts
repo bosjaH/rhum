@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RssParserService } from '../../shared';
+import { RssParserService } from '../../services';
 
 @Component({
   selector: 'main',
