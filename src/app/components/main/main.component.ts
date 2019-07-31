@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RssParserService } from '../../shared';
 
 @Component({
   selector: 'main',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private rssSvc: RssParserService
+  ) { }
 
   ngOnInit() {
+    this.rssSvc.readFeed('https://www.rte.ie///radio1/podcast/podcast_whitenoise.xml')
+      .subscribe((result) => {
+        console.log(result);
+      });
   }
 
 }
