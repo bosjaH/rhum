@@ -18,8 +18,14 @@ html, body {
   height: 100vh;
 }
 
-.app-side-menu { grid-area: side-menu; }
+.app-side-menu { 
+  grid-area: side-menu; 
+}
 
-.app-content { grid-area: content; }
+.app-content { 
+  grid-area: content; 
+}
 
-.app-player { grid-area: player; }
+.app-player { 
+  grid-area: player; 
+}
