@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, defer } from 'rxjs';
 
+import { Output } from 'rss-parser';
 const RssParser = window.require('rss-parser');
 
 @Injectable({
@@ -8,12 +9,18 @@ const RssParser = window.require('rss-parser');
 })
 export class RssParserService {
 
-  private parser = new RssParser();
+  private parser: typeof RssParser;
 
   constructor() { }
 
-  public readFeed(url: string): Observable<any> {
-    console.log('been heere');
-    return defer( async () => await this.parser.parseURL(url));
+  public readFeed(url: string): Observable<Output> {
+    this.initParser();
+    return defer(async () => await this.parser.parseURL(url));
+  }
+
+  private initParser(): void {
+    if (this.parser != null) {
+      this.parser = new RssParser();
+    }
   }
 }
