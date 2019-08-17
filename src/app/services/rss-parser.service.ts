@@ -9,7 +9,7 @@ const RssParser = window.require('rss-parser');
 })
 export class RssParserService {
 
-  private parser: typeof RssParser;
+  private parser: typeof RssParser = null;
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class RssParserService {
   }
 
   private initParser(): void {
-    if (this.parser != null) {
+    if (this.parser === null) {
       this.parser = new RssParser();
     }
   }
