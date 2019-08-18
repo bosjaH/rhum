@@ -3,6 +3,7 @@ import '../polyfills';
 import { NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { AppConfig } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,11 @@ import { MainComponent, SideNavComponent, PlayerComponent } from './components';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers, metaReducers } from './state';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,6 +42,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     SharedModule.forRoot(),
     PodcastsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers, 
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    EffectsModule.forRoot([]),
+    !AppConfig.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
   bootstrap: [AppComponent]

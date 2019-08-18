@@ -1,7 +1,7 @@
-
+import * as app from '../../state';
 import { PodcastsActions, PodcastsActionTypes } from './podcasts.actions';
 
-export interface State {
+export interface State extends app.State {
 
 }
 
